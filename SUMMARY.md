@@ -1,5 +1,5 @@
 # Summary
 
 * [Home](README.md)
-* [Best practises](BestPractice.md)
-* [Toolkit](Toolkit.md)
+* [Best practises](pages/BestPractices.md)
+* [Toolkit](pages/Ingredients.md)
