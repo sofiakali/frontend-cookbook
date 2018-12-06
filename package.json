@@ -1,0 +1,27 @@
+{
+  "name": "frontend-cookbook",
+  "version": "0.0.1",
+  "description": "",
+  "main": "README.md",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AckeeCZ/frontend-cookbook.git"
+  },
+  "keywords": [
+    "ackee",
+    "frontend",
+    "cookbook"
+  ],
+  "author": "AckeeCZ",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AckeeCZ/frontend-cookbook/issues"
+  },
+  "homepage": "https://github.com/AckeeCZ/frontend-cookbook#readme",
+  "devDependencies": {
+    "gitbook": "^2.6.9"
+  }
+}
