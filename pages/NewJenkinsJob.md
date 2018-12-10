@@ -3,13 +3,56 @@
 This recipe describes how to setup Jenkins to automatically build project and deploy it to GS bucket. 
 It consists of few steps made in Jenkins, Gitlab & repostory.
 
-## Přidání Jenkinsfile do projektu
-TBD - kde vzít Jenkinsfile?
+## Add Jenkinsfile to project
 
-* Změnit `projectName`
-* PipelineReact - název funkce v groovy skriptu, která obsluhuje pipelinu
-* `slackChannel` - Nastavit název slack kanálu pro konkrétní projekt, např. #ci-petshare
-* Přidat větve pro buildění i jejich adresy pro deploy
+Take the content below and put it to file called `Jenkinsfile` located in root of your repository.
+
+```
+PipelineReact {
+  slackChannel = '#ci-web'
+  buildCommand = [
+      development: 'npm install && npm test && npm run build:dev',
+      master:      'npm install && npm test && npm run build:prod',
+  ]
+  buildDir = 'build'
+  
+  baseURL = 'template-react'
+  bucketURL = [
+      master:      "gs://${baseURL}.ack.ee/",
+      development: "gs://${baseURL}-development.ack.ee/",
+      stage:       "gs://${baseURL}-stage.ack.ee/"
+  ]
+
+  cloudProject = [
+      development: 'infrastruktura-1307',
+      master:      'ackee-production',
+  ]
+
+  nodeEnv = '-e NODE_PATH=./app:./config'
+  nodeImage = 'node:6'
+  excludeDir = '.git'
+}
+```
+
+### Config fields
+
+**PipelineReact** - Name of function in groovy script which manages the pipeline.
+
+### Change these fields for project
+
+* **slackChannel** - Set name of Slack channel for sending build result into. Create project specific channel (eg. `#ci-petshare`) or left default `#ci-web` channel - but it's not recommended.  
+
+* **buildCommand** - Add set of terminal commands that will run on build trigger.  
+
+* **baseURL**, **beucketURL** - Git branches that are required to build and adresses to deploy them.
+
+* **cloudProject** - Id of cloud project where branch is deployed. Ask DevOps for these.
+
+### Change these if you need
+
+* **build** - Folder where pipeline will look for built project files and use them for deploy.
+
+* **nodeImage** - Name of docker image which will be used as a build environment.
 
 ## Create new job
 
