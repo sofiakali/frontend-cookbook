@@ -1,7 +1,7 @@
 # Build project using Jenkins
 
 This recipe describes how to setup Jenkins to automatically build project and deploy it to GS bucket. 
-It consists of few steps made in Jenkins, Gitlab & repostory.
+It consists of few steps made in Jenkins, Gitlab & repository.
 
 ## Add Jenkinsfile to project
 
