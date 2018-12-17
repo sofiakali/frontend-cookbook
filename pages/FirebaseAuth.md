@@ -19,7 +19,7 @@ function* handleLoginForm(action) {
     ...
 }
 
-// Helper function returning channel with Firebase auth state observer
+// Factory function returning channel with Firebase auth state observer
 function getAuthChannel() {
     return eventChannel(emit => {
         return firebase.auth().onAuthStateChanged(user => emit({ user }));
