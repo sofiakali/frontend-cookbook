@@ -31,15 +31,9 @@ function* observeUserFirebase() {
     yield put(authActions.firebaseAuthFetching(true));
     const authChannel = yield call(getAuthChannel);
 
-    try {
-        while (true) {
-            const { user } = yield take(authChannel);
-            yield put(authActions.setUser(user));
-        }
-    } finally {
-        if (yield cancelled()) {
-            authChannel.close();
-        }
+    while (true) {
+        const { user } = yield take(authChannel);
+        yield put(authActions.setUser(user));
     }
 }
  ```
