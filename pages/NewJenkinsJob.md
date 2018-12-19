@@ -56,7 +56,7 @@ PipelineReact {
 
 ## Create new job
 
-1. Open https://jenkinsaurora.ack.ee/ in your browser.
+1. Go to ackee jenkins websites.
 
 2. Press **Nové** button in top left corner.  
 ![New Jenkins job](../img/NewJenkinsJob/new_job.png) 
@@ -71,7 +71,7 @@ PipelineReact {
   ![Clone job](../img/NewJenkinsJob/copy_pipeline_from.png)  
 
 5. After confirm and getting to job configuration page, change the field **Project repository**. Then setup branches which will be scanned for changes by writing their names (separated by single space) into **Behaviours -> Discover branches -> Include** field, eg. `master development stage`.
-![Configure job](../img/NewJenkinsJob/job_configuration.png) 
+![Configure job](../img/NewJenkinsJob/job_configuration_new.png) 
 
 6. Decide if `master` branch should been build automatically or only by manual triggering, it's __Supress automatic SCM triggering__ option.  
 ![Supress automatic SCM triggering option](../img/NewJenkinsJob/suppress_automatic_SCM_triggering.png)   
@@ -80,9 +80,7 @@ PipelineReact {
 
 Build webhook URL by replacing **GROUP_NAME/REPOSITORY_NAME** with your project's Gitlab group and repository name in followring URL pattern:  
 
-`http://jenkinsaurora.ack.ee/git/notifyCommit?url=git@gitlab.ack.ee:GROUP_NAME/REPOSITORY_NAME.git`  
-
-For example, if you have `https://gitlab.com/Web/awesome-project`, then the wehook URL is `http://jenkinsaurora.ack.ee/git/notifyCommit?url=git@gitlab.ack.ee:Web/awesome-project.git`.
+When you don't know the webhooks looks like - look into different project :) 
 
 In gitlab repository go to **Settings -> Integration** page and field the URL field with hook adress from previous step, then click Add webhook and check **Enable SSL verification** option is checked.
 ![Gitlab webhook setup](../img/NewJenkinsJob/gitlab_webhook_setup.png)   
