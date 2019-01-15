@@ -1,9 +1,9 @@
 PipelineReact {
   slackChannel = '#ci-frontend-cookbook'
   buildCommand = [
-    master: 'npm install && npm run build',
-    stage: 'npm install && npm run build',
-    development: 'npm install && npm run build',
+    master: 'npm install && npm run gitbook:install && npm run build',
+    stage: 'npm install && npm run gitbook:install && npm run build',
+    development: 'npm install && npm run gitbook:install && npm run build',
   ]
   baseURL = 'frontend-cookbook'
   buildDir = '_book'
