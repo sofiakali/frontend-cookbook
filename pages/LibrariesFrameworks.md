@@ -9,6 +9,7 @@ This is a list of libraries and frameworks we use in our projects. Most of them 
  - [Cypress](libraries/Cypress.md)
  - [Fela](#fela)
  - [Infinite scroller](#infinite-scroller)
+ - [Jest](libraries/Jest.md)
  - [Lodash](#lodash)
  - [MJML](#mjml)
  - [Moment](#moment)
