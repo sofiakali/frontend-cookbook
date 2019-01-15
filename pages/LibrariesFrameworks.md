@@ -6,6 +6,7 @@ This is a list of libraries and frameworks we use in our projects. Most of them 
 
  - [Ant design](#ant-design)
  - [Classnames](#classnames)
+ - [Cypress](libraries/Cypress.md)
  - [Fela](#fela)
  - [Infinite scroller](#infinite-scroller)
  - [Lodash](#lodash)
