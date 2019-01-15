@@ -6,4 +6,5 @@
   * [🧪 Cypress](pages/libraries/Cypress.md)
   * [🤡 Jest](pages/libraries/Jest.md)
 * [⚙️ Build project using Jenkins](pages/NewJenkinsJob.md)
-* [🔥 Firebase authentication](pages/FirebaseAuth.md)
+* [🔥 Firebase authentication](pages/FirebaseAuth.md)
+* [🍔 Tools we cook](pages/ToolsWeCook.md)
