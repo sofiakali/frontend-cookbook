@@ -1,13 +1,16 @@
-# Tools & libraries
+# 📚 Libraries & frameworks
 
-This is a list of tools and libraries we use in our projects. Most of them is for React as we use it as our primary javascript framework.
+This is a list of libraries and frameworks we use in our projects. Most of them is for React as we use it as our primary javascript framework, but you can find ones for plain javascript as well.
 
 ## List
 
  - [Ant design](#ant-design)
  - [Classnames](#classnames)
  - [Fela](#fela)
+ - [Infinite scroller](#infinite-scroller)
+ - [Lodash](#lodash)
  - [MJML](#mjml)
+ - [Moment](#moment)
  - [React Intl](#react-intl)
  - [React responsive](#react-responsive)
  - [React router](#react-router)
@@ -16,6 +19,7 @@ This is a list of tools and libraries we use in our projects. Most of them is fo
  - [Redux form](#redux-form)
  - [Redux saga](#redux-saga)
  - [Reselect](#reselect)
+ - [Scrollbars](#scrollbars)
 
 ## List with description
 
@@ -37,11 +41,29 @@ Library for styling in javascript with many advantages such as atomic CSS, no sp
 
 http://fela.js.org/
 
+### Infinite scroller
+
+Infinite scroll component for React
+
+https://github.com/CassetteRocks/react-infinite-scroller
+
+### Lodash
+
+Javascript utility library we use very often.
+
+https://lodash.com
+
 ### MJML
 
 A framework for easy creating responsive emails. You don't have to bother with tables and styles by yourself anymore and focus on content and design.
 
 https://mjml.io/
+
+### Moment
+
+Javascript library for for working with date and time.
+
+http://momentjs.com/
 
 ### React Intl
 
@@ -57,7 +79,7 @@ https://github.com/contra/react-responsive
 
 ### React router
 
-Well known routing library for React. We use both version 3 and version 4 based on specific project.
+Well known routing library for React. We use both version 3 and version 4 based on specific project [with bindings for redux](https://github.com/supasate/connected-react-router).
 
 https://www.npmjs.com/package/react-router
 
@@ -90,3 +112,7 @@ https://redux-saga.js.org/
 Selector library for creating and combining memoized Redux selectors which improves performance.
 
 https://github.com/reduxjs/reselect
+
+### Scrollbars
+
+https://github.com/malte-wessel/react-custom-scrollbars
