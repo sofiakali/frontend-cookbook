@@ -1,4 +1,4 @@
-# :octocat: Code versioning
+# Code versioning
 
 Every developer needs some [version control](https://en.wikipedia.org/wiki/Version_control) and we decided to use Git for that purpose. Here you can find some description of some best bractices or worflows we are trying keep when using it.
 
