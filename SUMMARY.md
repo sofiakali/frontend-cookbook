@@ -8,4 +8,4 @@
 * [⚙️ Build project using Jenkins](pages/NewJenkinsJob.md)
 * [🔥 Firebase authentication](pages/FirebaseAuth.md)
 * [🍔 Tools we cook](pages/ToolsWeCook.md)
-* [:octocat: Code versioning](pages/CodeVersioning.md)
+* [🌵 Code versioning](pages/CodeVersioning.md)
