@@ -17,7 +17,7 @@ That is a workflow we use when developing **applications**. There are always at 
 All mentioned branches (`master`, `development`, `stage`) represents environment for deployment. 
 
 * `development` - we use it when developing application, every new feature or bug fix (not urgent) is first merged into development branch which is then deployed to development environment and tested if it works.
-* `stage` - when project manager decides that developed features, fixed bugs are ready to test by customer, they are usually first merged to `stage` branch and test at its environemnt before deploying to production
+* `stage` - when project manager decides that developed features or fixed bugs are ready to be tested by a customer, developer deploy them to the stage environment where customer can test them. That is accomplished by merging the `development` branch to the `stage` branch.
 * `master` - when new features, bug fixes are approved by testers (`development`) and customer (`stage`) they are ready to merge to `master` branch and deploy to production environemnt.  
 *Be aware that for `master` branch unlike for `development`, deploy is usually not started automatically and you need to start it manually.*
 
