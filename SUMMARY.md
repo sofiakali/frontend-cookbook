@@ -11,3 +11,4 @@
 * [🌵 Code versioning](pages/CodeVersioning.md)
 * [📊 Google Analytics](pages/GoogleAnalytics.md)
 * [🌄 Favicons in JS apps](pages/FaviconsWebpack.md)
+* [📖 Paging implementation](pages/PagingImplementation.md)
