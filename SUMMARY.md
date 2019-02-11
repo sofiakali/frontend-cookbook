@@ -13,3 +13,4 @@
     * [🔥 Firebase authentication](pages/FirebaseAuth.md)
     * [📊 Google Analytics](pages/GoogleAnalytics.md)
     * [📖 Paging implementation](pages/PagingImplementation.md)
+    * [🤝 Sharing variables between CSS & JS](SharingVariables.md)
