@@ -99,7 +99,9 @@ This is an example of how to utilize sharing variables approach when you use 3rd
 
 Let's say we use [Antd](https://ant.design) (we really do) in our app, and we need to use some of its variables in styles for our component. Maybe we use Fela for styling components and and height of the [header](https://ant.design/components/layout/) is important to set logo height. 
 
-Start with following instructions described above to [setup webpack](#setup-webpack) and don't forget to set `javascriptEnabled` option to true for `less-loader`, its needed for Antd styles. Then create file `variables.less` (since Antd uses Less syntax for styles) and fill it
+Start with instructions described above to [setup webpack](#setup-webpack) and don't forget to set `javascriptEnabled` option to true for `less-loader`, its [needed for Antd styles](https://ant.design/docs/react/customize-theme#Customize-in-webpack), because it's less styles contain javascript. 
+
+Then create file `variables.less` (since Antd uses Less syntax for styles) and fill it
 
 ```less
 // styles/variables.less
