@@ -1,8 +1,8 @@
 # 🤝 Sharing variables between CSS & JS
 
-Sometimes you have some value, let's say color definition or size of element, that you need in stylesand also Javascript sources. For that you would need to use some styles syntax that supports variables (eg. [SASS](https://sass-lang.com/) or [Less](http://lesscss.org/)). This recipe is about **sharing these variables in webpack based app**.
+Sometimes you have some value, let's say color definition or size of an element, that you need in styles and also Javascript sources. For that you would need to use some styles syntax that supports variables (eg. [SASS](https://sass-lang.com/) or [Less](http://lesscss.org/)). This recipe is about **sharing these variables in webpack based app**.
 
-It doesn't matter if you need the values for inline styles or [Fela](http://fela.js.org) tule or theme. The main goal is to set style sources to export variables so they can be imported in Javascript. Because that main key to enabling shared variables are [CSS Modules](https://github.com/css-modules/css-modules), especially their [interoperability specification](https://github.com/css-modules/icss#export).
+It doesn't matter if you need the values for inline styles or [Fela](http://fela.js.org) rule or theme. The main goal is to set style sources to export variables so they can be imported in Javascript. The main key to enable shared variables is [CSS Modules](https://github.com/css-modules/css-modules), especially their [interoperability specification](https://github.com/css-modules/icss#export).
 
 ## Setup webpack
 
@@ -67,7 +67,7 @@ $header-height-px: 24 + 0px;
 
 What we've done when defining variables is to allow export of header height as a pure number value while preserving its value with unit for styles. It can be done also other way, for example using [function to strip the value](https://css-tricks.com/snippets/sass/strip-unit-function).
 
-> Note: I haven't found a way how to export variables when using `.scss` syntax yet.
+> Note: I haven't found a way how to export variables when using `.sass` syntax yet.
 
 ```less
 // styles/content.less
@@ -95,7 +95,7 @@ contentStyles.bgColor === '#FF8CA2'; // true
 
 ## Utilize it with Ant design
 
-This is an example of how utilizing sharing variables approach when you use 3rd party library with own styles and need to reuse its variables in your styles. 
+This is an example of how to utilize sharing variables approach when you use 3rd party library with own styles and need to reuse its variables in your styles. 
 
 Let's say we use [Antd](https://ant.design) (we really do) in our app, and we need to use some of its variables in styles for our component. Maybe we use Fela for styling components and and height of the [header](https://ant.design/components/layout/) is important to set logo height. 
 
