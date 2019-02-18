@@ -8,7 +8,7 @@
 * [⚙️ Build project using Jenkins](pages/NewJenkinsJob.md)
 * [🍔 Tools we cook](pages/ToolsWeCook.md)
 * [🌵 Code versioning](pages/CodeVersioning.md)
-* 🧨 Implementation
+* [🧨 Implementation](pages/Implementation.md)
     * [🌄 Favicons in JS apps](pages/FaviconsWebpack.md)
     * [🔥 Firebase authentication](pages/FirebaseAuth.md)
     * [📊 Google Analytics](pages/GoogleAnalytics.md)
