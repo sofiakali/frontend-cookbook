@@ -4,10 +4,10 @@ Lets say you have a list of 500 items. You don't want them to be rendered all th
 
 ## `react-virtualized` or `react-window`
 
-We don't want to reinvent the wheel. We do want to use tested libraries that implement _windowing_. There are two well know libraries solving the same:
+We don't want to reinvent the wheel. We do want to use tested libraries that implement _windowing_. There are two well known libraries solving the same:
 
 - [react-virtualized](https://www.npmjs.com/package/react-virtualized) the former library, solves a lot of use cases
-- [react-window](https://www.npmjs.com/package/react-window) the latter library, created by the author of `react-virtualized`, lightweight solution supporting only vorizontal/vertical lists and grids with fixed and variable item size.
+- [react-window](https://www.npmjs.com/package/react-window) the latter library, created by the author of `react-virtualized`, lightweight solution supporting only horizontal/vertical lists and grids with fixed and variable item size.
 
 **The author of the libraries recommends using `react-window` everytime it solves your use cases.**
 
@@ -43,9 +43,9 @@ const MyList = ({ data }) => (
 
 ### Dynamic Data in `itemData` With Variable `itemSize`
 
-When you use `VariableSizeList`, you have to set `itemSize` prop to be a function that accepts an index and return the size. `react-window` then creates styles for the items and caches the styles. The problem is that these styles are cached unless you invalidate them, does't matter if `itemData` change or not.
+When you use `VariableSizeList`, you have to set `itemSize` prop to be a function that accepts an index and returns the size. `react-window` then creates styles for the items and caches the styles. The problem is that these styles are cached unless you invalidate them, does't matter if `itemData` change or not.
 
-To invalidate data when your `itemData` change you can use api of the list and react lifecycle methods.
+To invalidate the styles when your `itemData` change you can use api of the list and react lifecycle methods.
 
 ```javascript
 import React from "react";
