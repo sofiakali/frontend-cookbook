@@ -11,11 +11,18 @@ We don't want to reinvent the wheel. We do want to use tested libraries that imp
 
 **The author of the libraries recommends using `react-window` everytime it solves your use cases.**
 
-## Use Cases
+## `react-window` Use Cases
+There are two type of components for displaying data in the package: `List` for list data and `Grid` for tabular data. Both of them can be either `FixedSize` or `VariableSize`. This gives us:
 
-### List With Dynamic Height (`react-window`)
+* `FixedSizeList`
+* `VariableSizeList`
+* `FixedSizeGrid`
+* `VariableSizeGrid`
 
-Sometime you need the container of the list to have dynamic height. For example, if you have the list of the size of the window. The problem is that you have to set the height to the `List` (or `Grid`) as a number.
+The API for `Grid` is almost the same as for `List` but two dimensional.
+### List With Dynamic Sizes
+
+Sometime you need the container of the list to have dynamic height or width. For example, if you have the list of the size of the window. The problem is that you have to set the height and the width to the `List` as a number.
 
 Luckily, there is a package [react-virtualized-auto-sizer](https://www.npmjs.com/package/react-virtualized-auto-sizer) that can help.
 
@@ -41,11 +48,11 @@ const MyList = ({ data }) => (
 );
 ```
 
-### Dynamic Data in `itemData` With Variable `itemSize`
+### Dynamic `itemData` in VariableSizeList
 
 When you use `VariableSizeList`, you have to set `itemSize` prop to be a function that accepts an index and returns the size. `react-window` then creates styles for the items and caches the styles. The problem is that these styles are cached unless you invalidate them, does't matter if `itemData` change or not.
 
-To invalidate the styles when your `itemData` change you can use api of `List` (or `Grid`) and React lifecycle methods (or Hooks like in the example).
+To invalidate the styles when your `itemData` change you can use api of `List` and React lifecycle methods (or Hooks like in the example).
 
 ```javascript
 import React from "react";
