@@ -45,7 +45,7 @@ const MyList = ({ data }) => (
 
 When you use `VariableSizeList`, you have to set `itemSize` prop to be a function that accepts an index and returns the size. `react-window` then creates styles for the items and caches the styles. The problem is that these styles are cached unless you invalidate them, does't matter if `itemData` change or not.
 
-To invalidate the styles when your `itemData` change you can use api of the list and react lifecycle methods.
+To invalidate the styles when your `itemData` change you can use api of `List` (or `Grid`) and React lifecycle methods (or Hooks like in the example).
 
 ```javascript
 import React from "react";
