@@ -1,6 +1,6 @@
 # Displaying long data lists
 
-Lets say you have a list of 500 items. You don't want them to be rendered all the time because it will impact the performance. There is a technique called _windowing_ that can be used to optimize the performance. In windowing, you render only items that can be currently seen on the screen.
+Lets say you have a list of 500 items. You don't want them to be rendered all the time because it will impact the performance. There is a technique called [_windowing_](https://reactjs.org/docs/optimizing-performance.html#virtualize-long-lists) that can be used to optimize the performance. In _windowing_, you render only items that can be currently seen on the screen.
 
 ## `react-virtualized` or `react-window`
 
