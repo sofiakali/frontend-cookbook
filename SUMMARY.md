@@ -6,7 +6,7 @@
   - [🧪 Cypress](pages/libraries/Cypress.md)
   - [🤡 Jest](pages/libraries/Jest.md)
 - [️🏗 Projects development](pages/Projects.md)
-  - [Start ne ]  
+  - [👷 Bootstraping](pages/project/Bootstraping.md)  
   - [⚙️ Build project using Jenkins](pages/project/NewJenkinsJob.md)
 - [🍔 Tools we cook](pages/ToolsWeCook.md)
 - [🌵 Code versioning](pages/CodeVersioning.md)
