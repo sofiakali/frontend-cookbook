@@ -2,22 +2,22 @@
 
 Because we are usual lazy programmers, we like to make things as automated and done out of the box as possible.
 
-Starting new projects as easily and effectively.
+Starting new projects is easy and effective.
 
 ## React Application
 
 For React applications we use **[create-react-app](https://facebook.github.io/create-react-app/)** by Facebook to bootstrap basic app structure. But we [forked the project](https://github.com/ackeeCZ/create-react-app) and adjusted [react-scripts](https://github.com/AckeeCZ/create-react-app/tree/master/packages/react-scripts) package (create-react-app uses it internally) to our needs.
 
-So if you want to create new project, run following command, where `my-app` is the name of your project and also of the folder that will be created
+So if you want to create a new project, run following command, where `my-app` is the name of your project and also of the folder that will be created
     
 ```bash
 npx create-react-app  my-app --scripts-version @ackee/react-scripts
 ```
-You will need to decide if application needs an authentication (the guide will ask you) ant then the basic structure is created.
+You will need to decide if the application needs an authentication (the guide will ask you) ant then the basic structure is created.
 
 ### Project structure
 
-Created [source files structure](https://github.com/AckeeCZ/create-react-app/tree/master/packages/react-scripts/template/src) is quite understandable, but it's worth to describe a files structure and some patterns we're trying to follow
+Created [source files structure](https://github.com/AckeeCZ/create-react-app/tree/master/packages/react-scripts/template/src) is easy to understand, but it's worth to describe the files structure and some patterns we're trying to follow
 
 #### `components`, `containers`, `HOC`
 
@@ -29,7 +29,7 @@ Contains sources that often relates to `redux` like selectors, reducers, sagas, 
 
 #### `translations`
 
-Contains text translations of all app.
+Contains text translations of the app.
 
 #### `styles`
 
@@ -45,8 +45,22 @@ There is contained most of the application code, it's separated into folders whi
 There are 2 or 3 modules in default - `application`, `auth` and `core` (`auth` module is optional and included if your request it at bootstraping phase). Structure of each module is similar to application root with two important differences:
 
 * Module exposes all its sources, needed by other modules or rest of application through `index.js` file. 
-  You should ever import from modules like `import { MyComponent } from './modules/my-module'` and **never break contracts** with imports like `import MyComponent from './modules/my-module/components/MyComponent'`.
+  You should every time import from module root and **never break contracts** with imports leading deeper into the module.
+  ```js
+  // Good
+  import { MyComponent } from './modules/my-module';
+  // Bad
+  import MyComponent from './modules/my-module/components/MyComponent'
+  ```
+
 * Each dependency from outside of the module is imported in module's `dependencies.js` file and every file inside the module should import them from there. **No other file than `dependencies.js` should contain import that leads outside of the module.**
+  ```js
+  // Good
+  import { React } from '../dependecies';
+  import Button from '../components/Button';
+  // Bad
+  import React from 'react';
+  ```
 
 Example structure of module looks like
 
@@ -72,7 +86,7 @@ modules/
 
 ### New modules
 
-To ease creating modules, the project has npm script command (that uses code generator [Hygen](https://www.hygen.io) under the hood) you can use, just run
+To make creating modules easier, the project has npm script command (that uses code generator [Hygen](https://www.hygen.io) under the hood) you can use, just run
 
 ```bash
 npm run create-module app-layout
