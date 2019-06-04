@@ -82,3 +82,16 @@ where `app-layout` is name of the module you wanna create. Then look into `modul
 
 ## Gatsby website
 
+Better than start from the scratch is to base new project on one of provided starters. Assume you have `gatsby-cli`  already installed (if not, run `npm install -g gatsby-cli`) then execute
+
+```bash
+gatsby new my-website https://github.com/gatsbyjs/gatsby-starter-hello-world
+```
+
+where `my-website` is name of the website you're going to create and `https://github.com/gatsbyjs/gatsby-starter-hello-world` is repository url of starter.
+
+If you need multi language website you would better [base it on our starter](https://medium.com/@marek.janca/840c27795827) for internatialized websites
+
+```bash
+gatsby new my-multi-lang-website https://github.com/AckeeCZ/gatsby-starter-internationalized
+```
