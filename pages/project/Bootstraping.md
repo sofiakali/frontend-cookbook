@@ -2,7 +2,9 @@
 
 Because we are usual lazy programmers, we like to make things as automated and done out of the box as possible.
 
-Starting new projects is easy and effective.
+You can choose from guides of two project types:
+* [Dynamic React application](#react-application)
+* [Gatsby generated static website](#gatsby-website)
 
 ## React Application
 
