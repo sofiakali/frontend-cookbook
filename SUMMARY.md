@@ -17,3 +17,4 @@
   - [📖 Paging implementation](pages/implementation/Paging.md)
   - [🤝 Sharing variables between CSS & JS](pages/implementation/SharingVariables.md)
   - [📜 Displaying long lists of data](pages/implementation/LongDataLists.md)
+  - [🎨 Using Fela - tips & tricks ](pages/implementation/FelaTipsAndTricks.md)
