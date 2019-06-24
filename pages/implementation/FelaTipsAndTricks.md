@@ -43,18 +43,18 @@ But there is more, just have a look into [the documentation](https://www.npmjs.c
 
 ## Animations using [keyframes](https://developer.mozilla.org/en-US/docs/Web/CSS/@keyframes)
 
-Our frontend developer Marek's done a great job researching how keyframe animations work in Fela and has made a React component for using them with any other component.
+Our frontend developer Jirka has done a great job researching how keyframe animations work in Fela and has made a React component for using them with any other component.
 
 ```jsx
 import React from "react";
 import PropTypes from "prop-types";
 import { RendererContext, ThemeContext } from "react-fela";
 
-function FelaKeyframe({ children, keyframe }) {
+function FelaKeyframe({ children, keyframe, ...props }) {
   const renderer = React.useContext(RendererContext);
   const theme = React.useContext(ThemeContext);
   const animationName = React.useMemo(
-    () => renderer.renderKeyframe(keyframe, { theme }),
+    () => renderer.renderKeyframe(keyframe, { ...props, theme }),
     [keyframe, renderer, theme]
   );
   return children(animationName);
