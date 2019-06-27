@@ -50,11 +50,19 @@ function createConnectionChannel() {
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
 
     return eventChannel(emit => {
+        let prevStatus = null;
+
         function handleConnectionStatusChange() {
             const status = connection.downlink === 0 ? Status.OFFLINE : Status.ONLINE;
 
-            // Sent new network status out of the connectionChannel to the handleConnectionChange
-            emit(status);
+            // The 'change' event is triggered anytime some connection properity changes,
+            // but we only care about the network status.
+            if (status !== prevStatus) {
+                // Sent new network status out of the connectionChannel to the handleConnectionChange
+                emit(status);
+
+                prevStatus = status;
+            }
         }
 
         connection.addEventListener('change', handleConnectionStatusChange);
@@ -128,10 +136,16 @@ function createConnectionChannel() {
     }
 
     return eventChannel(emit => {
+        let prevStatus = null;
+
         function handleConnectionStatusChange() {
             const status = connection.downlink === 0 ? Status.OFFLINE : Status.ONLINE;
 
-            emit(status);
+            if (status !== prevStatus) {
+                emit(status);
+
+                prevStatus = status;
+            }
         }
 
         connection.addEventListener('change', handleConnectionStatusChange);
