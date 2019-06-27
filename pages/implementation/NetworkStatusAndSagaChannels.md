@@ -11,7 +11,7 @@ Log into console message when application changes its network status, i.e. when 
 ## The solution
 
 -   Create a custom event channel called `connectionChannel`.
--   Listen on changes from that channel with `takeEvery` effect, pass those changes to `handleConnectionChange` callback function.
+-   Listen on changes from that channel with `takeLatest` effect, pass those changes to `handleConnectionChange` callback function.
 
 ```js
 import { eventChannel } from 'redux-saga';
@@ -39,7 +39,7 @@ function* handleConnectionChange(status) {
 export default function* handleNetworkConnection() {
     const connectionChannel = yield createConnectionChannel();
 
-    yield takeEvery(connectionChannel, handleConnectionChange);
+    yield takeLatest(connectionChannel, handleConnectionChange);
 }
 ```
 
@@ -102,7 +102,7 @@ import { sagaEffects, eventChannel, messageActions } from '../../dependencies';
 
 import { Status } from '../../constants';
 
-const { takeEvery, put } = sagaEffects;
+const { takeLatest, put } = sagaEffects;
 
 function createConnectionChannel() {
     const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
@@ -154,7 +154,7 @@ function* handleConnectionChange(status) {
 export default function* handleNetworkConnection() {
     const connectionChannel = yield createConnectionChannel();
 
-    yield takeEvery(connectionChannel, handleConnectionChange);
+    yield takeLatest(connectionChannel, handleConnectionChange);
 }
 ```
 
