@@ -25,7 +25,7 @@ It's very easy - just add the snippet into a corresponding language file in `sni
 
 *  Azure DevOps organization account for Ackee
 *  Personal Microsoft account
-*  Personal access token (PAT) for Marketplace
+*  Personal access token (PAT) for Marketplace (see [the official documentation](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) for guide how to retrieve it)
 
 
 After all requirements are met:
@@ -34,4 +34,4 @@ After all requirements are met:
 3. Pack the extension with `vsce package`
 4. Publish an extension with `vsce publish minor`. The last parameter of the command is a version (see the doc for more info).
 
-Alterntively, the extension can be packed and published throuh Marketplace publisher [mangement page](https://marketplace.visualstudio.com/manage).
+Alternatively, the extension can be packed and published throuh Marketplace publisher [mangement page](https://marketplace.visualstudio.com/manage).
