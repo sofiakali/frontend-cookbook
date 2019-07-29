@@ -15,9 +15,20 @@ It's very easy - just add the snippet into a corresponding language file in `sni
 
 ### Adding a command
 
-*To be done*
+The extension is basically a typescript node project using the VS Code API. See [the documentation](https://code.visualstudio.com/api/get-started/extension-anatomy) for an extension anatomy. There is `extension.ts` file where you register commands and use app's Model. There is `model.ts` containing all extension's logic.
+
+To create a new command:
+1. Add the functionality to `Model` class
+2. Register the new command in `etension.ts`
+3. Add the command to `package.json` sections `contributes` and `activationEvents`
 
 ## Publishing
+
+### Travis
+
+The project has continues delivery set up on Travis. To release a new version, run `npm version VERSION` in updated `master` branch.
+
+### Publishing manually
 
 [Official VS Code documentation guide](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) for publishing an extension
 
