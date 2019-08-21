@@ -18,6 +18,8 @@ Create a spreadsheet on Google drive. It is better to duplicate an existing spre
 
 Important step is to **make the spreadsheet published**. Go to `File > Publishing on web` in your spreadshet and press `Publish` if there is one.
 
+> Note: If you publish the whole spreadsheet you can use more tabs, not just one.
+
 ## Setup config
 
 In your project root open `.ackeeconfig.json` (make one if it's not there) and fill these fields: `sheet_id`, `dir`, `cols`.
