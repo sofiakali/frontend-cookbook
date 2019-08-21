@@ -45,7 +45,7 @@ Typical `.ackkeconfig.json` looks like
 Install [ackee-localize-spreadsheet-sdk](https://www.npmjs.com/package/ackee-localize-spreadsheet-sdk) to your project
 
 ```bash
-npm install ackee-localize-spreadsheet-sdk 
+npm install --save-dev ackee-localize-spreadsheet-sdk 
 ```
 
 then make `localize` npm script (or however you want to name it) and use it in other build scripts
