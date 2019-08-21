@@ -12,7 +12,7 @@ Here are a few steps you need to go through to set up a project for translations
 
 ## Make a spreadsheet
 
-Create a spreadsheet on Google drive. Better than make a clear spreadsheet is to duplicate one of existing, you can try [Abibuch project spreadsheet](https://docs.google.com/spreadsheets/d/1Klsl7XqBxPdeAgGA84kho49-_dwOpFXmWOeRzV3pWd4/edit#gid=0) or a [Spreadsheet template](https://docs.google.com/spreadsheets/d/1HKjvejcuHIY73WvEkipD7_dmF9dFeNLji3nS2RXcIzk/edit#gid=0).  
+Create a spreadsheet on Google drive. It is better to duplicate an existing spreadsheet rather than making a new one. You can try [Abibuch project spreadsheet](https://docs.google.com/spreadsheets/d/1Klsl7XqBxPdeAgGA84kho49-_dwOpFXmWOeRzV3pWd4/edit#gid=0) or a [Spreadsheet template](https://docs.google.com/spreadsheets/d/1HKjvejcuHIY73WvEkipD7_dmF9dFeNLji3nS2RXcIzk/edit#gid=0).  
 
 **Don't forget to clone a spreadsheet to you own location.** The best place to keep project's spreadsheet is the `Projekty > My Project > Web` folder on Google Drive, where `My Project` is name of your project, eg. Abibuch. 
 
