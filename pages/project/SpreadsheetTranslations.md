@@ -4,7 +4,7 @@ There is a tool called [ackee-localize-spreadsheet-sdk](https://www.npmjs.com/pa
 
 Our motivation for building such tool was a move of responsibility for filling translations out of repositories. We likely want to let customer (or some translations specialized department) fill translations independently on our source code.
 
-Here is few steps you need to go through to setup project for translations from spreadsheet
+Here are a few steps you need to go through to set up a project for translations from a spreadsheet
 * [Make a spreadsheet](#make-a-spreadsheet)
 * [Setup config](#setup-config)
 * [Install npm package](#install-npm-package)
