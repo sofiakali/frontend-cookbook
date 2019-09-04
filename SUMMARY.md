@@ -8,6 +8,7 @@
 -   [️🏗 Projects development](pages/Projects.md)
     -   [👷 Bootstraping](pages/project/Bootstraping.md)
     -   [⚙️ Build project using Jenkins](pages/project/NewJenkinsJob.md)
+    -   [🇨🇿 Setup spreadsheet translations](pages/project/SpreadsheetTranslations.md)
 -   [🍔 Tools we cook](pages/ToolsWeCook.md)
 -   [🌵 Code versioning](pages/CodeVersioning.md)
 -   [🧨 Implementation](pages/Implementation.md)
