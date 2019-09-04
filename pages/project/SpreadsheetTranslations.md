@@ -45,7 +45,13 @@ Typical `.ackkeconfig.json` looks like
 Install [ackee-localize-spreadsheet-sdk](https://www.npmjs.com/package/ackee-localize-spreadsheet-sdk) to your project
 
 ```bash
-npm install --save-dev ackee-localize-spreadsheet-sdk 
+yarn add -D ackee-localize-spreadsheet-sdk 
+```
+
+or
+
+```bash
+npm install -D ackee-localize-spreadsheet-sdk 
 ```
 
 then make `localize` npm script (or however you want to name it) and use it in other build scripts
@@ -53,8 +59,8 @@ then make `localize` npm script (or however you want to name it) and use it in o
 ```json
 {
   "scripts": {
-    "start": "npm run localize && cross-env NODE_ENV=development webpack-dev-server --progress --inline --colors",
-    "build": "npm run localize && npm run build:dev",
+    "start": "yarn localize && cross-env NODE_ENV=development webpack-dev-server --progress --inline --colors",
+    "build": "yarn localize && yarn build:dev",
     ...
     "localize": "ackee-localize-spreadsheet-sdk",
   }
@@ -92,4 +98,4 @@ Before you generate first localization files, make few other steps:
 
 ### It's done
 
-Now you can run `npm run localize` or `npm start` which will first run the `localize` script.
+Now you can run `yarn localize` or `yarn start` which will first run the `localize` script.
