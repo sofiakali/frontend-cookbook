@@ -4,7 +4,7 @@ If you need fast and simple authentication for your web app, Firebase is the rig
 ## Table of contantes
 
 * [Basic React/Redux app authentication](#basic-reactredux-app-authentication)
-* [Social providers authentication](#social-providers-authentication)
+* [Social authentication providers](#social-authentication-providers)
     * [UI part](#ui-part)
     * [Business logic](#business-logic)
     * [Helper functions](#helper-functions)
@@ -16,7 +16,7 @@ Everything about web authentication is well documented in [Firebase docs](https:
  * Install firebase through npm: `npm i --save firebase`
  * Initialize Firebase among with store (typically in `createStore.js` file)
  * Save info about authenticated user in Redux store
- * Wrapp your `App` component with *higher order component* observing user's authentication state
+ * Wrap your `App` component with *higher order component* observing user's authentication state
  * Use [Redux Saga channels](https://redux-saga.js.org/docs/advanced/Channels.html) for Firebase auth state observing logic
 
 ```js
@@ -46,7 +46,7 @@ function* observeUserFirebase() {
 }
  ```
 
- ## Social providers authentication
+ ## Social authentication providers
 
 This is a brief description of how to implement with [Google](https://firebase.google.com/docs/auth/web/google-signin) or [Facebook](https://firebase.google.com/docs/auth/web/facebook-login) account in the Redux saga driven app having flow controlled by our authentication library [Petrus](https://www.npmjs.com/package/@ackee/petrus).
 
@@ -148,7 +148,7 @@ export default function*() {
 
 **`getAccessToken`**
 
-Main purpose of this helper is to return token along with its expiration period. This is important since otherwise Petrus doesn't not recognize expired token and user would be stuck in state where he is logged in, but his access token doesn't work for API requests.
+Main purpose of this helper is to return token along with its expiration period. This is important since otherwise Petrus doesn't recognize expired token and user would be stuck in state where he is logged in, but his access token wouldn't work for API requests.
 
 `user`is [`firebase.User`](https://firebase.google.com/docs/reference/js/firebase.User) object containing information about logged user.  
 
