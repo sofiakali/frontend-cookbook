@@ -10,7 +10,7 @@ But in this recipe we will be talking about deep links in context of mobile appl
 
 ## How to deeplink
 
-All you need to do is to make few static files publicly accessible at your webpage. It's comming with a restriction, it can't be 
+All you need to do is to make few static files publicly accessible at your webpage.
 
 There are two files:
 
@@ -18,7 +18,7 @@ There are two files:
 * `assetlinks.json` for Android
 
 which you should put, according to [the standard](https://en.wikipedia.org/wiki/List_of_/.well-known/_services_offered_by_webservers), to the `/.well-known/` folder at your website. 
-Content of the files is up to iOS, Android developers.
+Content of the files is up to iOS, Android developers, but you can view their [examples at the end of this recipe](#app-files-examples)
 
 
 ```jsx
@@ -31,14 +31,66 @@ Content of the files is up to iOS, Android developers.
 </Link>
 ```
 
-Where `https://microsite.flashsport.com` is fallback url that is opened if native application cannot been opened, eg. because it's not installed. **It's value is important, because Android/iOS app developers need to allow it in their apps.**
+Where `https://microsite.flashsport.com` is fallback url that is opened if native application cannot been opened, eg. because it's not installed. **Its value is important, because Android/iOS app developers need to allow it in their apps.**
 
 ### Observations
 
 * Attribute `rel="nofollow"` was key attribute to make automatic opening Android app. Without it, popup asking you which app you want to use for opening the link appear.
-* At least iOS apps don't allow deep link to lead to the same domain, you need to use subdomain or completly different domain.  
-For example if your're linking from `https://flashsport.com`, your link cannot been something like `https://flashsport.com/deeplink` but rather `https://deeplink.flashsport.com` or `https://fs-deeplink.com` which can be a microsite telling you there is native app.
+* At least iOS apps **don't allow deep link to lead to the same domain**, you need to use subdomain or completly different domain.  
+For example if your're linking from `https://flashsport.com`, your link cannot be something like `https://flashsport.com/deeplink` but rather `https://deeplink.flashsport.com` or `https://fs-deeplink.com` which can be a microsite telling you there is native app.
 
+
+### App Files examples
+
+#### `assetlinks.json` (Android)
+```json
+[
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "cz.cookbook.debug",
+      "sha256_cert_fingerprints": [
+        "2B:CB:7D:17:81:23:C7:BF:21:31:74:B1:CD:D9:06:7C:54:F0:1D:A7:DF:CB:BD:61:DB:03:18:C3:42:B1:B8:78"
+      ]
+    }
+  },
+  {
+    "relation": [
+      "delegate_permission/common.handle_all_urls"
+    ],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "cz.cookbook.beta",
+      "sha256_cert_fingerprints": [
+        "2B:CB:7D:17:81:23:C7:BF:21:31:74:B1:CD:D9:06:7C:54:F0:1D:A7:DF:CB:BD:61:DB:03:18:C3:42:B1:B8:78"
+      ]
+    }
+  }
+]
+```
+
+#### `apple-app-site-association` (iOS)
+
+```json
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "PAGI69Y0CD.cz.ackee.enterprise.cookbook.dev",
+        "paths": ["/*"]
+      },
+      {
+        "appID": "PAGI69Y0CD.cz.ackee.enterprise.cookbook.beta",
+        "paths": ["/*"]
+      }
+    ]
+  }
+}
+```
 
 ----
 
