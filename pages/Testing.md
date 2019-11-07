@@ -18,8 +18,8 @@ You can go through all the "chapters" or pick the one you just need.
 ## Chapters
 
 * 🐶 [Testing Essentials](testing/Essentials.md)
-* 🏗 Testing Selectors
 * 📦 Testing Components, Containers & Hooks
+* 🏗 Testing Selectors & Utils
 * 🕰 Sagas
-* 🌅 UI testing
+* 🌅 E2E testing
 * 🤙 Manual testing
