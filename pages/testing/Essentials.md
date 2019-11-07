@@ -214,7 +214,9 @@ test('unique name is generated for point', () => {
 
 ---
 
-That's  all from matchers, don't forget to discover all of them at the [documentation page](https://jestjs.io/docs/en/expect#methods). There are plenty of other matchers that you might find useful like `.toContain`, `.toBeNull`, `.toThrow`, `.toMatch`, `toHaveLength`, etc. but the described ones are basics.
+That's  all about matchers for now, don't forget to discover all of them at the [documentation page](https://jestjs.io/docs/en/expect#methods). There are plenty of other matchers that you might find useful like `.toContain`, `.toBeNull`, `.toThrow`, `.toMatch`, `toHaveLength`, etc. but the described ones are basics.
+
+And one more thing - you can extend basic set of matchers by custom ones when you need some, eg. for some specific environments like [DOM](https://github.com/testing-library/jest-dom) or [React Native](https://github.com/testing-library/jest-native).
 
 ## Mocking
 
@@ -234,6 +236,7 @@ In case you din't do it yet, read more about some Jest basics to be ready for th
 
 * **SPEED**‼ Less real code to execute means faster tests run.
 * **Focus** When dependencies are mocked and only tested code is run, we can quickly identify why test fails.
+* Of course, there is more reasons for mocking but I am not able to list all of them here. You can find more of them in Kent C. Doods [article about javascript mocks](#resources)
 
 ### Basic mocks
 
@@ -375,3 +378,9 @@ test('delay function call by custom delay in seconds', () => {
 ```
 
 There are also other timers mocking helpers like [`runAllTimers`](https://jestjs.io/docs/en/timer-mocks#run-all-timers) or [`runPendingTimers`](https://jestjs.io/docs/en/timer-mocks#run-pending-timers). Be aware of them in case you would need them but I found `advanceTimersByTime` sufficient for most cases.
+
+----
+
+### Resources
+
+* [What is javascript mock](https://kentcdodds.com/blog/but-really-what-is-a-javascript-mock) by Kent C. Doods
