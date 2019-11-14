@@ -1,6 +1,6 @@
 # Github Pipeline with Travis Set-up
 
-We deploy Github based repozitories with [Travis](https://travis-ci.org/) and it needs to be set up properly with commands described below.
+We deploy Github based repositories with [Travis](https://travis-ci.org/) and it needs to be set up properly with commands described below.
 
 ## Set-up
 
