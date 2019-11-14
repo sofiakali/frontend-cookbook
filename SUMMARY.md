@@ -20,4 +20,5 @@
     -   [📜 Displaying long lists of data](pages/implementation/LongDataLists.md)
     -   [🎨 Using Fela - tips & tricks](pages/implementation/FelaTipsAndTricks.md)
     -   [🛰 Handling network status with saga channels](pages/implementation/NetworkStatusAndSagaChannels.md)
+    -   [⚓ Deep links](pages/implementation/DeepLinks.md)
 -  [🧩 VS Code extension](pages/VSCodeExtension.md)
