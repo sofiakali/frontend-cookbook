@@ -4,9 +4,19 @@ For testing generally, you will always need at least **testing framework** & usu
 
 We have a luck that our testing framework also includes mocking funcionality (& much more, later about it) so that's all we need for now. There is already a recipe about [**how to start with Jest**](/pages/libraries/Jest.md) - our testing framework. Take all the text here as and addition to it.
 
-> Don't care about mocking sometimes used in examples, we'll discuss it in next section 😉
+## TOC
+
+* [Matchers](#matchers)
+  * [Comparation helpers](#comparation-helpers)
+* [Mocking](#mocking)
+  * [Basic mocks](#basic-mocks)
+  * [Timer mocks](#timer-mocks)
+
+---
 
 ## Matchers
+
+> Don't worry about mocking sometimes used in examples, we'll discuss it in next section 😉
 
 What is it? Long story short: "function that test expected value against real one". They make subject of testing more obvious.
 
@@ -140,7 +150,7 @@ test('map user names with custom mapper and provide a random id', () => {
 
     mapUsers(users, mapper)
 
-    expect(mapper).toHaveBeenCalledWith(expect.anything(String))
+    expect(mapper).toHaveBeenCalledWith(expect.any(String))
 })
 ```
 
@@ -282,7 +292,10 @@ jest.mock('@ackee/chris')
 
 describe('selectMenuItems', () => {
     it('returns all menu items', () => {
+        routingSelector.mock.returnValue({ pathname: '/' })
+        
         const items = selectMenuItems({})
+        
         expect(items).toHaveLength(4)
     })
     
