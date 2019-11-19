@@ -80,7 +80,7 @@ test('get user from firebase', () => {
      
     const user = getFirebaseUser()
 
-    expect(firebase.auth).toHaveBeenCalledTimes(1)
+    expect(firebase.auth).toHaveBeenCalledTimes(1) // passes
 })
 ```
 
@@ -109,8 +109,8 @@ test('log user in with google credential', () => {
      
     loginWithToken(token)
 
-    expect(firebase.auth.GoogleAuthProvider.credential).toHaveBeenCalledWith(token)
-    expect(firebase.auth.signInWithCredential).toHaveBeenCalledWith('fake credential')
+    expect(firebase.auth.GoogleAuthProvider.credential).toHaveBeenCalledWith(token)  // passes
+    expect(firebase.auth.signInWithCredential).toHaveBeenCalledWith('fake credential')  // passes
 })
 ```
 
@@ -138,7 +138,7 @@ test('map users with custom mapper', () => {
 
     mapUsers(users, mapper)
 
-    expect(mapper).toHaveBeenCalledWith(expect.anything())
+    expect(mapper).toHaveBeenCalledWith(expect.anything())  // passes
 })
 ```
 
@@ -153,7 +153,7 @@ test('map user names with custom mapper and provide a random id', () => {
 
     mapUsers(users, mapper)
 
-    expect(mapper).toHaveBeenCalledWith(expect.any(String))
+    expect(mapper).toHaveBeenCalledWith(expect.any(String))  // passes
 })
 ```
 
@@ -168,9 +168,11 @@ test('Each attempt contain all values', () => {
     const attempts = [
         [4, 1, 6, 7, 3, 5, 2, 5, 4, 6],
         [8, 6, 3, 5, 1, 2, 4, 0, 7],
+        [1, 2, 3, 4],
     ]
-    expect(attempts[0]).toEqual(expect.arrayContaining(values))
-    expect(attempts[1]).toEqual(expect.arrayContaining(values))
+    expect(attempts[0]).toEqual(expect.arrayContaining(values))  // passes
+    expect(attempts[1]).toEqual(expect.arrayContaining(values))  // passes
+    expect(attempts[2]).toEqual(expect.arrayContaining(values))  // fails
 })
 ```
 
@@ -186,7 +188,7 @@ const generateRandomPoint = () => ({
 test('generated point has correct type', () => {
     const point = generateRandomPoint()
 
-    expect(point).toEqual(expect.objectContaining({
+    expect(point).toEqual(expect.objectContaining({  // passes
         type: 'point',
     }))
 })
@@ -198,7 +200,7 @@ It gets more powerful when you start to combine them with other helpers mentione
 test('random coordinates are generated for point', () => {
     const point = generateRandomPoint()
 
-    expect(point).toEqual(expect.objectContaining({
+    expect(point).toEqual(expect.objectContaining({  // passes
         x: expect.any(Number),
         y: expect.any(Number),
     }))
@@ -214,12 +216,12 @@ test('unique name is generated for point', () => {
     const point1 = generateRandomPoint()
     const point2 = generateRandomPoint()
 
-    expect(point1.name).not.toEqual(point2)
-    expect(point).toEqual(expect.objectContaining({
+    expect(point1.name).not.toEqual(point2)  // passes
+    expect(point).toEqual(expect.objectContaining({  // passes
         name: expect.stringContaining('point'),
     }))
 
-    expect(point).toEqual(expect.objectContaining({
+    expect(point).toEqual(expect.objectContaining({  // passes
         name: expect.stringMatching(/point\d{1}/),
     }))
 })
@@ -299,7 +301,7 @@ describe('selectMenuItems', () => {
         
         const items = selectMenuItems()
         
-        expect(items).toHaveLength(4)
+        expect(items).toHaveLength(4)  // passes
     })
     
     it('marks current route active', () => {
@@ -307,7 +309,7 @@ describe('selectMenuItems', () => {
 
         const items = selectMenuItems()
         
-        expect(items[2]).toHaveProperty('active', true)
+        expect(items[2]).toHaveProperty('active', true)  // passes
     })
     
     it('does not mark other than current route as active', () => {
@@ -315,9 +317,9 @@ describe('selectMenuItems', () => {
         
         const items = selectMenuItems()
         
-        expect(items[0]).toHaveProperty('active', false)
-        expect(items[1]).toHaveProperty('active', false)
-        expect(items[3]).toHaveProperty('active', false)
+        expect(items[0]).toHaveProperty('active', false)  // passes
+        expect(items[1]).toHaveProperty('active', false)  // passes
+        expect(items[3]).toHaveProperty('active', false)  // passes
     })
 })
 ```
@@ -366,10 +368,12 @@ test('delay function call by 1 second if no delay not defined', () => {
     
     delayFunction(callback)
 
+    // passes
     expect(callback).not.toHaveBeenCalled() // 0 ms elapsed since delayFunction call
 
     jest.advanceTimersByTime(1000) 
 
+    // both passes
     expect(callback).toHaveBeenCalled()  // 1000 ms elapsed since delayFunction call
     expect(callback).toHaveBeenCalledTimes(1)
 })
@@ -380,14 +384,17 @@ test('delay function call by custom delay in seconds', () => {
     
     delayFunction(callback, 1.5)
 
+     // passes
     expect(callback).not.toHaveBeenCalled()  // 0 ms elapsed since delayFunction call
 
     jest.advanceTimersByTime(1000)
 
+    // passes
     expect(callback).not.toHaveBeenCalled()  // 1000 ms elapsed since delayFunction call
 
     jest.advanceTimersByTime(500)
 
+     // both passes
     expect(callback).toHaveBeenCalled()  // 1500 ms elapsed since delayFunction call
     expect(callback).toHaveBeenCalledTimes(1)
 })
