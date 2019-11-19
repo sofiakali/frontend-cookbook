@@ -122,7 +122,7 @@ Most of the helpers is negatable (usually those which makes sense to negate) by 
 
 #### `expect.anything()` & `expect.any(constructor)`
 
-Useful when you wanna test if a function was called with specific argument bud you don't care about exact value. The `.any` variant allows you to check a type of the argument.
+Useful when you wanna test if a function was called with specific argument but you don't care about exact value. The `.any` variant allows you to check a type of the argument.
 
 ```js
 const mapUsers = (users, mapper) => {
