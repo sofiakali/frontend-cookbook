@@ -1,11 +1,11 @@
 # Automated testing
 
-We want working apps. But how can we be sure they old features works when we just refactored its code because of a new feature? We need to test the old feature, but how?
+We want working apps. But how can we be sure the old features still work properly when we've just refactored its code because of a new feature? We need to test the old feature, but how?
 
 Sure we can manually click on all buttons, fill out fields, open modals and visually check it works. But it's slow and imagine you should do it for every important part 
 of the app every week.   
 
-Here comes automated tests to save our mental health 😜
+Here come automated tests to save our mental health 😜
 
 Writing tests is easy, there is no advanced logic, no complex code structures or expressions (at least they shouldn't be 😅). **Writing tests that truly make your app reliable**
 and don't require to be modified every time you change piece of code change, that's a real challenge! 

@@ -1,8 +1,8 @@
 # Testing Essentials
 
-For testing generally, you will always need at least **testing framework** & usually also **mocking library**.
+In general, you will always need at least **testing framework** & usually also **mocking library**.
 
-We have a luck that our testing framework also includes mocking funcionality (& much more, later about it) so that's all we need for now. There is already a recipe about [**how to start with Jest**](/pages/libraries/Jest.md) - our testing framework. Take all the text here as and addition to it.
+We are lucky that our testing framework also includes mocking funcionality (& much more, later about it) so that's all we need for now. There is already a recipe about [**how to start with Jest**](/pages/libraries/Jest.md) - our testing framework. Take all the text here as and addition to it.
 
 ## TOC
 
@@ -18,9 +18,9 @@ We have a luck that our testing framework also includes mocking funcionality (& 
 
 > Don't worry about mocking sometimes used in examples, we'll discuss it in next section 😉
 
-What is it? Long story short: "function that test expected value against real one". They make subject of testing more obvious.
+What is it? Long story short: "function that test expected value against a real one". They make subject of testing more obvious.
 
-There is [big bunch of matchers](https://jestjs.io/docs/en/expect#methods), but the ones most used in tests are `toBe`, `toEqual`, `toHaveBeenCalledTimes` and `toHaveBeenCalledWith`. Let's review theme one by one and look at their usage and props/cons.
+There is [big bunch of matchers](https://jestjs.io/docs/en/expect#methods), but the ones usually used in tests are `toBe`, `toEqual`, `toHaveBeenCalledTimes` and `toHaveBeenCalledWith`. Let's review theme one by one and take a look at their usage and props/cons.
 
 ### `.toBe(value)`
 
@@ -39,7 +39,7 @@ test('game is done', () => {
 
 ### `.toEqual(value)`
 
-* Does deep compare so it's useful for comparation complex objects
+* It does a deep comparsion so it's useful for comparation of complex objects
 * When comparing two errors, only `message` property is used for comparation
 
 ```js
@@ -122,7 +122,7 @@ Most of the helpers is negatable (usually those which makes sense to negate) by 
 
 #### `expect.anything()` & `expect.any(constructor)`
 
-Useful if you wanna test a function was called with argument bude you don't care about exact value. The `.any` variant allows you to check a type of the argument.
+Useful when you wanna test if a function was called with specific argument bud you don't care about exact value. The `.any` variant allows you to check a type of the argument.
 
 ```js
 const mapUsers = (users, mapper) => {
@@ -131,7 +131,10 @@ const mapUsers = (users, mapper) => {
 
 test('map users with custom mapper', () => {
     const mapper = jest.fn()
-    const users = [ { id: 1, name: 'John'}, { id: 2, name: 'Jack'} ]
+    const users = [ 
+        { id: 1, name: 'John'},
+        { id: 2, name: 'Jack'},
+    ]
 
     mapUsers(users, mapper)
 
@@ -146,7 +149,7 @@ const mapUserNamesToRandomIds = (names, mapper) => {
 
 test('map user names with custom mapper and provide a random id', () => {
     const mapper = jest.fn()
-    const users = [ 'John', 'Jack' ]
+    const users = ['John', 'Jack']
 
     mapUsers(users, mapper)
 
@@ -156,7 +159,7 @@ test('map user names with custom mapper and provide a random id', () => {
 
 #### `expect.arrayContaining(array)` & `expect.objectContaining(object)`
 
-Very useful when you don't want to check whole array/object, but only particular items/properties that are just important for you.
+Very useful when you don't want to check whole array/object, but only particular items/properties that are important for you.
 
 ```js
 const values = [1, 2, 3, 4, 5, 6]
@@ -189,7 +192,7 @@ test('generated point has correct type', () => {
 })
 ```
 
-It gets more poweful when you start to combine them with other mentioned helpers
+It gets more powerful when you start to combine them with other helpers mentioned above
 
 ```js
 test('random coordinates are generated for point', () => {
@@ -230,7 +233,7 @@ And one more thing - you can extend basic set of matchers by custom ones when yo
 
 ## Mocking
 
->Technique that allows you to focus on testing one specific part of code, faking other parts assuming they work as intended.
+>A technique allowing you to focus on testing one specific part of code, faking other parts assuming they work as intended.
 
 In case you din't do it yet, read more about some Jest basics to be ready for the examples:
 
@@ -246,11 +249,11 @@ In case you din't do it yet, read more about some Jest basics to be ready for th
 
 * **SPEED**‼ Less real code to execute means faster tests run.
 * **Focus** When dependencies are mocked and only tested code is run, we can quickly identify why test fails.
-* Of course, there is more reasons for mocking but I am not able to list all of them here. You can find more of them in Kent C. Doods [article about javascript mocks](#resources)
+* Of course, there are more reasons for mocking but I am not able to list all of them here. You can find more of them in Kent C. Doods [article about javascript mocks](#resources)
 
 ### Basic mocks
 
-We will ilustrate it on mocking 3rd party library, but you can use it same way also for other sources, modules, etc. in app.
+We will ilustrate it on mocking 3rd party library, but you can use it the same way also for other sources, modules, etc. in app.
 
 So there is a selector that uses `routingSelector` from `@ackee/chris` package and since there is no browser and no real location, we need to mock it to return some.
 
@@ -281,7 +284,7 @@ export const selectMenuItems = createSelector(
 Notice:
 * how we mimic location object and provide only properties we need
 * how we mock a module and then import it to be able to "program" intended behaviour
-* `selectMenuItems` can receive fake state object `{}` since routingSelector is mocked and doesn't use it
+* `selectMenuItems` doesn't require state object to be passed since routingSelector is mocked and doesn't use it
 
 ```jsx
 // __tests__/mySelectors.js
@@ -294,7 +297,7 @@ describe('selectMenuItems', () => {
     it('returns all menu items', () => {
         routingSelector.mock.returnValue({ pathname: '/' })
         
-        const items = selectMenuItems({})
+        const items = selectMenuItems()
         
         expect(items).toHaveLength(4)
     })
@@ -302,7 +305,7 @@ describe('selectMenuItems', () => {
     it('marks current route active', () => {
         routingSelector.mock.returnValue({ pathname: '/team' })
 
-        const items = selectMenuItems({})
+        const items = selectMenuItems()
         
         expect(items[2]).toHaveProperty('active', true)
     })
@@ -310,7 +313,7 @@ describe('selectMenuItems', () => {
     it('does not mark other than current route as active', () => {
         routingSelector.mock.returnValue({ pathname: '/team' })
         
-        const items = selectMenuItems({})
+        const items = selectMenuItems()
         
         expect(items[0]).toHaveProperty('active', false)
         expect(items[1]).toHaveProperty('active', false)
@@ -338,9 +341,9 @@ You can also check [module examples in jest repository](https://github.com/faceb
 
 ### Timer mocks
 
-Sometimes you code depends on some timing, maybe you use `setTimeout` or other kind of delaying code by time, and you would like to conrol the timing for tests. 
+Sometimes your code depends on some timing, maybe you use `setTimeout` or other kind of delaying code by time, and you would like to control the timing for tests. 
 
-That easily solved in Jest by faking timers with [`jest.useFakeTimers`](https://jestjs.io/docs/en/timer-mocks).
+That is easily solved in Jest by faking timers with [`jest.useFakeTimers`](https://jestjs.io/docs/en/timer-mocks).
 
 ```js
 function delayFunction(callback, delayInSeconds = 1) {
